@@ -1,11 +1,24 @@
-pri stisku klavesy odeslat "{keycode} 1"
-pri pusteni "{keycode} 0"
+# ESP32 Keylogger
+A simple hardware keylogger written in C++
 
-pokud neni stiskla zadna klavesa odeslat "nokeyheld"
+You need ***two*** `ESP32-S3`s, an `USB OTG` adapter, and thats it!
 
-tim se vyresi zahlcovani uartu kdyz se ty klavesy drzi.
-zaroven to muzu vyuzit rovnou k zapisu do nejakyho logu, asi rovnou s milis(), mozna do nejaky tabulky?
+I am using the Seeed Studio XIAO ESP32-S3, because it's really small
+
+![The final product](assets/keylogger.jpg)
+
+---
+## dev brainstorming
+
+zapis do nejakyho logu, asi rovnou s milis(), mozna do nejaky tabulky?
 ale mam docela omezeny misto takze xml nebo tak to asi nebude.
 k tomu by pak sel udelat parser kterej to hezky zobrazi uzivateli.
 
 extra: pokud se pripoji k wifi a k internetu tak muzu mit RTC
+
+bude existovat nejakej config file, nejspis v .config.
+pokud nebude existovat tak se automaticky vytvori s default values
+
+tam asi pujde vybrat styl ukladani (simple, detailed), mozna jak se ma aktivovat MSD mode a pripadne ta wifi
+
+a rozlozeni klavesnice, i kdyz to by bylo lepsi az u toho parseru, protoze to zrovna dela OS. ale dalo by se to vyuzit kdybych z toho udelal rubber ducky kombo

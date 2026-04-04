@@ -19,28 +19,11 @@ void setup() {
   Serial.println("ready");
 }
 
-bool lastButtonState = HIGH; // tlacitko nestisknuto
-
 void loop() {
-  bool currentButtonState = digitalRead(BUTTON_PIN);
+  if (Serial1.available()) {
+    String message = Serial1.readStringUntil('\n');
+    message.trim();
 
-  if (currentButtonState == LOW && lastButtonState == HIGH) {
-    digitalWrite(LED_BUILTIN, LOW);
-    
-    Serial1.println("1"); 
-    Serial.printf("[%lu] button pressed -> sending 1\n", millis());
-    
-    delay(50);
+    Serial.println(message);
   }
-
-  if (currentButtonState == HIGH && lastButtonState == LOW) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    
-    Serial1.println("0");
-    Serial.printf("[%lu] button released -> sending 0\n", millis());
-    
-    delay(50);
-  }
-
-  lastButtonState = currentButtonState;
 }
