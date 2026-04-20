@@ -3,12 +3,12 @@ A simple hardware keylogger written in C++
 
 You need ***two*** `ESP32-S3`s, an `USB OTG` adapter, and thats it!
 
-I am using the Seeed Studio XIAO ESP32-S3, because it's really small
+I am using the Seeed Studio XIAO ESP32-S3 for it's size and low price.
 
 ![The final product](assets/keylogger.jpg)
 
 ---
-## dev brainstorming
+## brainstorming
 
 zapis do nejakyho logu, asi rovnou s milis(), mozna do nejaky tabulky?
 ale mam docela omezeny misto takze xml nebo tak to asi nebude.
