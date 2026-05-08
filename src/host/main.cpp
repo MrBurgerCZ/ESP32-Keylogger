@@ -24,6 +24,7 @@ class MyEspUsbHost : public EspUsbHost {
 };
 
 MyEspUsbHost usbHost;
+bool wasConnected = false;
 
 void setup() {
   Serial.begin(115200);
@@ -42,4 +43,16 @@ void setup() {
 
 void loop() {
   usbHost.task();
+  
+  if (usbHost.isReady && !wasConnected) {
+    digitalWrite(LED_BUILTIN, LOW);
+    Serial1.println("STATUS:CONNECTED");
+    wasConnected = true;
+  }
+  if (!usbHost.isReady && wasConnected) {
+    digitalWrite(LED_BUILTIN, HIGH);
+    Serial1.println("STATUS:DISCONNECTED");
+    Serial1.println("MOD:0,KEYS:0.0.0.0.0.0");
+    wasConnected = false;
+  }
 }
