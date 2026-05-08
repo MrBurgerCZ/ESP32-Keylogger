@@ -12,7 +12,7 @@ class MyEspUsbHost : public EspUsbHost {
     if (memcmp(&report, &last_report, sizeof(hid_keyboard_report_t)) == 0) return;
 
     Serial1.print("MOD:");
-    Serial1.print(report.modifier, BIN);
+    Serial1.print(report.modifier, HEX);
     
     Serial1.print(",KEYS:");
     for (int i = 0; i < 6; i++) {

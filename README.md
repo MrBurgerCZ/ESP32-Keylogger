@@ -15,7 +15,7 @@ I am using the Seeed Studio XIAO ESP32-S3 for it's size and low price.
 ## Goals
 - [x] read keys from the keyboard
 - [x] send keypresses over uart to the other board
-- [ ] emulate a keyboard with the second board with usb hid
+- [x] emulate a keyboard with the second board with usb hid
 - [ ] persistent storage
 - [ ] save keypresses into a logfile
 - [ ] usb mass storage
