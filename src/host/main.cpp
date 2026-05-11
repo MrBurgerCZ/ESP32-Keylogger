@@ -1,14 +1,13 @@
 #include <Arduino.h>
 #include "EspUsbHost.h"
 
-// UART piny pro XIAO ESP32-S3 (D6=TX, D7=RX)
 #define TX_PIN 44 
 #define RX_PIN 43
 
 class MyEspUsbHost : public EspUsbHost {
   void onKeyboard(hid_keyboard_report_t report, hid_keyboard_report_t last_report) {
     
-    // novy keypress?
+    // new keypress?
     if (memcmp(&report, &last_report, sizeof(hid_keyboard_report_t)) == 0) return;
 
     Serial1.print("MOD:");
@@ -29,7 +28,7 @@ bool wasConnected = false;
 void setup() {
   Serial.begin(115200);
   
-  // uart mezi deskama
+  // uart to the other board
   Serial1.begin(115200, SERIAL_8N1, RX_PIN, TX_PIN);
   
   pinMode(LED_BUILTIN, OUTPUT);
